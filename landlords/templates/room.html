@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+    <head>
+    	<title> Room </title>
+    	<link rel="stylesheet"
+    	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    	<link rel="stylesheet"
+    	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    </head>
+    <style>
+    th { text-align: center;}
+    div.rooms { 
+        text-align: center;
+        padding: 40px 15px;
+    }
+    </style>
+    <body>
+    	<nav class="navbar navbar-inverse navbar-fixed-top"
+    	     role="navigation">
+    	     <div class="container">
+    	     	<div class="navbar-header">
+    	     		<button type="button"
+    	     		        class="navbar-toggle collapsed"
+    	     		        data-toggle="collapse" data-target="#navbar"
+    	     		        aria-expanded="false" aria-controls="navbar">
+    	     		        <span class="sr-only">Toggle navigation</span>
+    	     		        <span class="icon-bar"></span>
+    	     		        <span class="icon-bar"></span>
+    	     		        <span class="icon-bar"></span>
+    	     		</button>
+    	     		<a class="navbar-brand" href="#">SpaceRoom</a>
+    	     	</div>
+    	     </div>
+    	</nav>
+    	<div class="container">
+    		<div class="rooms">
+            <!-- version 1.0
+    		<p>	
+            <p> Your position is {{ path }} </p>
+            <a href="http://127.0.0.1:8000/meta/">Visit our META information page</a>
+            <br>
+            <a href="http://127.0.0.1:8000/landlords_list/"> Landlord list</a>    
+	    	{% for l in landlords %}
+		    	<h3> {{ l.name }} Landlord </h3>
+		    	{% if l.room_set.all %}
+			    	<p> I have {{ l.room_set.all|length }} rooms available </p>
+			    	<table class="table">
+			    	    <tr>
+			    	        <th> Address </th>
+			    	        <th> Rent </th>
+			    	        <th> Postcode </th>
+			    	        <th> Pet Allowed </th>
+			    	    </tr>
+			    	    {% for room in l.room_set.all %}
+			    	    <tr>
+			    	    	<td> {{ room.address}} </td>
+			    	    	<td> {{ room.rent }} </td>
+			    	    	<td> {{ room.postcode }} </td>
+			    	    	<td> {% if room.pet_allowed %}
+			    	    		    Yes
+			    	    		 {% else %}
+			    	    		    No
+			    	    		 {% endif %} </td>
+			    	    </tr>
+			    	    {% endfor %}
+			    	</table>
+			</p>
+    	    {% else %}
+    	    	<p> I don't have any room available currently! </p>
+    	    {% endif %}
+    	    {% endfor %}
+            -->
+            <h2> {{ landlord.name }} </h2>
+            {% if landlord.room_set.all %}
+                <p> I have {{ landlord.room_set.all|length }} room </p>
+                <table class="table">
+                    <tr>
+                        <th> Address </th>
+                        <th> Rent </th>
+                        <th> Post Code </th>
+                        <th> Pet Allowed </th>
+                    </tr>
+                    {% for room in landlord.room_set.all %}
+                        <tr> 
+                            <td> {{ room.address }} </td>
+                            <td> {{ room.rent }} </td>
+                            <td> {{ room.postcode }} </td>
+                            <td> {% if room.pet_allowed %} Yes {% else %} No {% endif %} </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p> I don't have room available currently </p>
+            {% endif %}
+    	    </div>
+        </div>
+    <script src="https=//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https=//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    </body>	
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+    <head>
+    	<title> Landlords </title>
+    	<link rel="stylesheet"
+    	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    	<link rel="stylesheet"
+    	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    </head>
+    <style>
+    th { text-align: center;}
+    div.rooms { 
+        text-align: center;
+        padding: 40px 15px;
+    }
+    </style>
+    <body>
+    	<nav class="navbar navbar-inverse navbar-fixed-top"
+    	     role="navigation">
+    	     <div class="container">
+    	     	<div class="navbar-header">
+    	     		<button type="button"
+    	     		        class="navbar-toggle collapsed"
+    	     		        data-toggle="collapse" data-target="#navbar"
+    	     		        aria-expanded="false" aria-controls="navbar">
+    	     		        <span class="sr-only">Toggle navigation</span>
+    	     		        <span class="icon-bar"></span>
+    	     		        <span class="icon-bar"></span>
+    	     		        <span class="icon-bar"></span>
+    	     		</button>
+    	     		<a class="navbar-brand" href="#">SpaceRoom</a>
+    	     	</div>
+    	     </div>
+    	</nav>
+    	<div class="container">
+    		<div class="rooms">
+    		<!--
+    		<h2> Landlord List </h2>
+    		<table class="table">
+    			<tr>
+    				<th> Name </th>
+    				<th> Phone number </th>
+    				<th> Email </th>
+    			</tr>
+    			{% for l in landlords %}
+    				<tr> 
+    					<td> {{ l.name }} </td>
+    					<td> {{ l.phone_number }} </td>
+    					<td> {{ l.email }} </td>
+    				</tr>
+    			{% endfor %}
+    		</table>
+    		-->
+    		<h2> Landlord list </h2>
+            <form action="/room/" method="get">
+                <table class="table">
+                    <tr>
+                        <th> Select </th>
+                        <th> Name </th>
+                        <th> Phone number </th>
+                        <th> Email </th>
+                        <th> Message </th>
+                    </tr>
+                    {% for l in landlords %}
+                        <tr> 
+                            <td> <input type="radio" name="id" value="{{ l.id }}"> </td>
+                            <!-- <td> <a href="/room/?id={{ l.id }}"> room </a> </td> -->
+                            <!-- <td> <a href="/room/{{ l.id }}"> roomII </a> </td> -->
+                            <td> {{ l.name }} </td>
+                            <td> {{ l.phone_number }} </td>
+                            <td> {{ l.email }} </td>
+                            <td> <a href="/message/{{ l.id }}"> Message </a> </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <input type="submit" value="view room">
+            </form>          
+    	    </div>
+        </div>
+    <script src="https=//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https=//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    </body>	
+</html>
