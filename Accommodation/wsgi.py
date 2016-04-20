@@ -16,5 +16,5 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Accommodation.settings")
 application = get_wsgi_application()
 
 # test Heroku
-from dj_static import Cling
-application = Cling(get_wsgi_application)
+#from dj_static import Cling
+#application = Cling(get_wsgi_application)
